@@ -1,0 +1,33 @@
+SELECT AVG(s.gpa)
+FROM students s;
+
+SELECT MAX(i.salary)
+FROM instructors i;
+
+SELECT AVG(s.gpa)
+FROM students s
+WHERE s.major ="JOUR";
+
+SELECT AVG(i.salary)
+FROM instructors i
+WHERE i.dept ="EE";
+
+SELECT i.fname, i.lname, i.dept, MAX(i.salary)
+FROM instructors i;
+
+SELECT s.fname, s.lname, r.grade, r.dept, r.crs_num
+FROM students s, rosters r, courses c
+WHERE s.id = r.stud_id
+AND r.dept = c.dept
+AND r.crs_num = c.crs_num
+AND c.dept = "HIST"
+AND c.crs_num = 357;
+
+SELECT i.fname, i.lname
+FROM students s, rosters r, courses c, instructors i
+WHERE s.id = r.stud_id
+AND r. dept = c.dept
+AND r.crs_num = c.crs_num
+AND c.instr_id = i.id
+AND s.fname = "Emma"
+AND s.lname = "Walker";
